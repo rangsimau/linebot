@@ -1,6 +1,6 @@
 <?php
 $access_token = '8vKMiroG4T1TmRvFnAFu9VXRXp0WQJGPmyxAA4Ae5mx+NISTXeuv6B8fSiEj3Tu/IeNTVXuEHAokWIq3AayKY5GBSVCcalP/x3yh169JtnpZ2EfUg99oC2c3VcySEpyCDAuFXKSbXMip966sAUrqCAdB04t89/1O/w1cDnyilFU=';
-
+$var = $_GET['var'];
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -24,6 +24,7 @@ $events = json_decode($content, true);
 			//	$text = $gettext;}
 
 			// Build message to reply back
+			if($var == 'push'){
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.' roomid: '.$room .' groupid: '.$group 
@@ -49,6 +50,7 @@ $events = json_decode($content, true);
 			curl_close($ch);
 
 			echo $result . "\r\n";
+			}
 		//}
 	//}
 //}
