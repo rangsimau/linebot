@@ -24,11 +24,11 @@ $events = json_decode($content, true);
 			//	$text = $gettext;}
 
 			// Build message to reply back
-			if($var == 'push'){
+			if(!is_unll($var) && $var<>''){
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.' roomid: '.$room .' groupid: '.$group 
-				'text' => 'push'
+				'text' => $var
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -54,4 +54,4 @@ $events = json_decode($content, true);
 		//}
 	//}
 //}
-echo "OK"." "."OK2";
+echo "OK";
