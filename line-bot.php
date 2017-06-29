@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 			$group = $event['source']['groupId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			if($text == 'leave'){
+			if($gettext == 'leave'){
 				$text = 'Bye';
 			}else{
 				$text = $gettext;}
