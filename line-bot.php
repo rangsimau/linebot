@@ -6,16 +6,34 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
+
+$end = '•';
+$start = '•';
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$gettext = strtolower($event['message']['text']);
+			$text = "";
+			$user = $event['source']['userId'];
+			$room = $event['source']['roomId'];
+			$group = $event['source']['groupId'];
+			$source_type = $event['source']['type'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			if($gettext == 'userid'){
+				$text = $start.' '.$user.' '.$end;
+			}elseif($gettext == 'roomid'){
+				$text = $start.' '.$room.' '.$end;
+			
+			}elseif($gettext == 'groupid'){
+				$text = $start.' '.$group.' '.$end;
+				
+			}elseif($gettext == 'payment check'){
+				$text = 'processing..';
+			}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -43,10 +61,7 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}
 	}
-}
-echo "OK";
-
-/*else{
+}else{
 	$type = $_GET['t'];
 	$text = $_GET['s'];
 	
@@ -56,7 +71,7 @@ echo "OK";
 
 	if($type == 'user'){
 		$id = $userid;
-	}else($type=='room'){
+	}elseif($type=='room'){
 		$id = $roomid;
 	}
 			$messages = [
@@ -83,5 +98,5 @@ echo "OK";
 			curl_close($ch);
 
 			echo $result . "\r\n";
-}*/
+}
 echo "OK";
