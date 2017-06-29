@@ -17,15 +17,17 @@ if (!is_null($events['events'])) {
 			$room = $event['source']['roomId'];
 			$group = $event['source']['groupId'];
 			$source_type = $event['source']['type'];
+			$end = '•';
+			$start = '•';
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			if($gettext == 'userid'){
-				$text = $user;
+				$text = $start.' '.$user.' '.$end;
 			}elseif($gettext == 'roomid'){
-				$text = $room.$source_type;
+				$text = $start.' '.$room.' '.$end;
 			
 			}elseif($gettext == 'groupid'){
-				$text = $group.$source_type;
+				$text = $start.' '.$group.' '.$end;
 				
 			}elseif($gettext == 'payment check'){
 				$text = 'processing..';
