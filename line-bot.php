@@ -1,35 +1,37 @@
 <?php
 $access_token = '8vKMiroG4T1TmRvFnAFu9VXRXp0WQJGPmyxAA4Ae5mx+NISTXeuv6B8fSiEj3Tu/IeNTVXuEHAokWIq3AayKY5GBSVCcalP/x3yh169JtnpZ2EfUg99oC2c3VcySEpyCDAuFXKSbXMip966sAUrqCAdB04t89/1O/w1cDnyilFU=';
-$var = $_GET['var'];
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
-//if (!is_null($events['events'])) {
+if (!is_null($events['events'])) {
 	// Loop through each event
-	//foreach ($events['events'] as $event) {
+	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		//if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			//$gettext = $event['message']['text'];
-			//$user = $event['source']['userId'];
-			//$room = $event['source']['roomId'];
-			//$group = $event['source']['groupId'];
+			$gettext = strtolower($event['message']['text']);
+			$user = $event['source']['userId'];
+			$room = $event['source']['roomId'];
+			$group = $event['source']['groupId'];
 			// Get replyToken
-			//$replyToken = $event['replyToken'];
-			//if($gettext == 'leave'){
-			//	$text = 'Bye';
-			//}else{
-			//	$text = $gettext;}
+			$replyToken = $event['replyToken'];
+			if($gettext == 'userid'){
+				$text = $user;
+			}elseif($gettext == 'roomid'){
+				$text = $room;
+			}elseif($gettext == 'groupid'){
+				$text = $group;
+			}elseif($gettext == 'payment check'){
+				$text = 'processing..';
+			}
 
 			// Build message to reply back
-			if(!is_null($var)){
-				if($var <> ''){
 			$messages = [
 				'type' => 'text',
-				//'text' => 'userid: '.$user.' roomid: '.$room .' groupid: '.$group 
-				'text' => $var
+				'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
+				//'text' => $var
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -52,7 +54,7 @@ $events = json_decode($content, true);
 
 			echo $result . "\r\n";
 		
-		//}
-	//}
-//}
-echo "OK";}}
+		}
+	}
+}
+echo "fail";}}
