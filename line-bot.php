@@ -16,22 +16,17 @@ if (!is_null($events['events'])) {
 			$user = $event['source']['userId'];
 			$room = $event['source']['roomId'];
 			$group = $event['source']['groupId'];
+			$source_type = $event['source']['type'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			if($gettext == 'userid'){
 				$text = $user;
 			}elseif($gettext == 'roomid'){
-				if(!is_null($room){
-					$text = $room;
-				}else{
-					$text = "ไม่มีห้องอยู่";
-				}
+				$text = $room.$source_type;
+			
 			}elseif($gettext == 'groupid'){
-				if(!is_null($group){
-					$text = $group;
-				}else{
-					$text = "ไม่มีกรุ้ปอยู่";
-				}
+				$text = $group.$source_type;
+				
 			}elseif($gettext == 'payment check'){
 				$text = 'processing..';
 			}
