@@ -34,9 +34,12 @@ if (!is_null($events['events'])) {
 			}elseif($gettext == 'payment check'){
 				$text = 'processing..';
 			}elseif($gettext == 'yes'){
-				$text = 'yes, i got it';
+				$text = 'I love you';
 			}elseif($gettext == 'no'){
-				$text = 'please tell me why';}
+				$text = 'Please tell me why';
+			}elseif($gettext == 'marry'){
+				$testcont = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php');
+			}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
