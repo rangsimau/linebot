@@ -61,9 +61,7 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}
 	}
-}
-echo 'pass';
-/*
+}else{
 	$type = $_GET['t'];
 	$text = $_GET['s'];
 	
@@ -76,39 +74,28 @@ echo 'pass';
 	}elseif($type=='room'){
 		$id = $roomid;
 	}
-			/*$messages = [
+			$messages = [
 				//'type' => 'text',
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				//'text' => $start.' '.$text.' '.$end
 				
 				'type' => 'template',
-				'altText' => 'this is',
+				'altText' => 'this isbla',
 				'template' => {
-					'type' => 'confirm',
-					'text' => 'Are?',
-					'actions' => []
+					'type' => 'buttons',
+					'thumbnailImageUrl' => 'tpmotorcycle.com/tpprice/upload/Akrapovic XSR 700 Black.jpg',
+					'title' => '',
+					'actions' => ['type' => 'uri',
+						     'label' => 'view detail',
+						     'uri' => '']
 				}
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
 				'to' => $id,
-				'messages' =>[
-					'type' => 'template',
-					'altText' => 'this is',
-					'template' => {
-						'type' => 'confirm',
-						'text' => 'Are?',
-						'actions' => [{
-							'type' => 'message',
-							'label' => 'Yes',
-							'text'	=> 'yes'},
-							{
-							'type' => 'message',
-							'label' => 'No',
-							'text' => 'no}]}
-					//'messages' => [$messages],
-			]];
+				'messages' => [$messages],
+			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
@@ -122,5 +109,5 @@ echo 'pass';
 			curl_close($ch);
 
 			echo $result . "\r\n";
-}*/
+}
 echo "OK";
