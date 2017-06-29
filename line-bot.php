@@ -58,4 +58,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "fail";}}
+echo "fail";
