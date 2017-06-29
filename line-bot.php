@@ -80,7 +80,7 @@ if (!is_null($events['events'])) {
 				//'text' => $start.' '.$text.' '.$end
 				
 				'type' => 'template',
-				'altText' => ' ',
+				'altText' => 'why',
 				'template' => [
 					'type' => 'confirm',
 					'text' => 'sure?',
