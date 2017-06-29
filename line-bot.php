@@ -74,13 +74,40 @@ if (!is_null($events['events'])) {
 		$id = $userid;
 	}
 
-	
+		/*	
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				'text' => $start.' '.$text.' '.$end
 			];
-
+		*/
+			$messages = [
+				  "type": "template",
+				  "altText": "this is a buttons template",
+				  "template": {
+				      "type": "buttons",
+				      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+				      "title": "Menu",
+				      "text": "Please select",
+				      "actions": [
+					  {
+					    "type": "postback",
+					    "label": "Buy",
+					    "data": "action=buy&itemid=123"
+					  },
+					  {
+					    "type": "postback",
+					    "label": "Add to cart",
+					    "data": "action=add&itemid=123"
+					  },
+					  {
+					    "type": "uri",
+					    "label": "View detail",
+					    "uri": "http://example.com/page/123"
+					  }
+				      ]
+				  }
+				];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
