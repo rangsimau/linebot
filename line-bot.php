@@ -12,6 +12,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$gettext = strtolower($event['message']['text']);
+			$text = $gettext;
 			$user = $event['source']['userId'];
 			$room = $event['source']['roomId'];
 			$group = $event['source']['groupId'];
@@ -30,8 +31,8 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
-				//'text' => $var
+				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
+				'text' => $text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
