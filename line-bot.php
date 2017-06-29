@@ -80,7 +80,12 @@ if (!is_null($events['events'])) {
 				//'text' => $start.' '.$text.' '.$end
 				
 				'type' => 'template',
-				'altText' => 'this is'
+				'altText' => 'this is',
+				'template' => {
+					'type' => 'confirm',
+					'text' => 'Are?',
+					'actions' => []
+				}
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
