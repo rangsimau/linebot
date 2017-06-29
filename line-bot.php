@@ -74,7 +74,7 @@ if (!is_null($events['events'])) {
 	if($type == 'user'){
 		$id = $userid;
 	}else($type=='room'){
-		$id=$roomid;
+		$id = $roomid;
 	}
 
 			$messages = [
