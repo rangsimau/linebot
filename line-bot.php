@@ -79,9 +79,19 @@ if (!is_null($events['events'])) {
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				//'text' => $start.' '.$text.' '.$end
 				
-				'type' => 'image',
-				'originalContentUrl' => 'https://still-thicket-82675.herokuapp.com/3_thumb.png',
-				'previewImageUrl' => 'https://still-thicket-82675.herokuapp.com/3_thumb.png'
+				'type' => 'template',
+				'altText' => ' ',
+				'template' => [
+					'type' => 'confirm',
+					'text' => 'sure?',
+					'actions' => [
+						['type'=>'message',
+						 'label' => 'Yes',
+						 'text' => 'yes'
+						],['type' => 'message',
+						  'label' => 'No',
+						  'text' => 'no']
+					]]
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
