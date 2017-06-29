@@ -21,9 +21,17 @@ if (!is_null($events['events'])) {
 			if($gettext == 'userid'){
 				$text = $user;
 			}elseif($gettext == 'roomid'){
-				$text = $room;
+				if(!is_null($room){
+					$text = $room;
+				}else{
+					$text = "ไม่มีห้องอยู่";
+				}
 			}elseif($gettext == 'groupid'){
-				$text = $group;
+				if(!is_null($group){
+					$text = $group;
+				}else{
+					$text = "ไม่มีกรุ้ปอยู่";
+				}
 			}elseif($gettext == 'payment check'){
 				$text = 'processing..';
 			}
