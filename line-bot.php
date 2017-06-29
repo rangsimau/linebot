@@ -33,7 +33,10 @@ if (!is_null($events['events'])) {
 				
 			}elseif($gettext == 'payment check'){
 				$text = 'processing..';
-			}
+			}elseif($gettext == 'yes'){
+				$text = 'yes, i got it';
+			}elseif($gettext == 'no'){
+				$text = 'please tell me why';}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
