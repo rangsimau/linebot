@@ -24,7 +24,8 @@ $events = json_decode($content, true);
 			//	$text = $gettext;}
 
 			// Build message to reply back
-			if(!is_null($var) && !is_empty($var)){
+			if(!is_null($var)){
+				if($var <> ''){
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.' roomid: '.$room .' groupid: '.$group 
@@ -54,4 +55,4 @@ $events = json_decode($content, true);
 		//}
 	//}
 //}
-echo "OK";}
+echo "OK";}}
