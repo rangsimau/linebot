@@ -6,34 +6,34 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
-if (!is_null($events['events'])) {
+//if (!is_null($events['events'])) {
 	// Loop through each event
-	foreach ($events['events'] as $event) {
+	//foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+		//if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$gettext = $event['message']['text'];
-			$user = $event['source']['userId'];
-			$room = $event['source']['roomId'];
-			$group = $event['source']['groupId'];
+			//$gettext = $event['message']['text'];
+			//$user = $event['source']['userId'];
+			//$room = $event['source']['roomId'];
+			//$group = $event['source']['groupId'];
 			// Get replyToken
-			$replyToken = $event['replyToken'];
-			if($gettext == 'leave'){
-				$text = 'Bye';
-			}else{
-				$text = $gettext;}
+			//$replyToken = $event['replyToken'];
+			//if($gettext == 'leave'){
+			//	$text = 'Bye';
+			//}else{
+			//	$text = $gettext;}
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.' roomid: '.$room .' groupid: '.$group 
-				'text' => $text
+				'text' => 'push'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
+			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
-				'replyToken' => $replyToken,
+				'to' => 'Ud392f1479ba3a4e92d82c98ba78e9f46',
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}
-	}
-}
-echo "OK"." "."OK";
+		//}
+	//}
+//}
+echo "OK"." "."OK2";
