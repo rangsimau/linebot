@@ -79,7 +79,7 @@ if (!is_null($events['events'])) {
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
-				'text' => $start.' '.$text.' '.$end;
+				'text' => $start.' '.$text.' '.$end
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
