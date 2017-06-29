@@ -13,6 +13,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			$userid = $event['message']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -41,6 +42,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+			echo $userid;
 		}
 	}
 }
