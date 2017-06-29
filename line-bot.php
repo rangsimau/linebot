@@ -63,7 +63,9 @@ if (!is_null($events['events'])) {
 		
 		}
 	}
-}else{
+}
+echo "OK";
+/*else{
 	$type = $_GET['t'];
 	$text = $_GET['s'];
 	
@@ -100,5 +102,5 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-}
+}*/
 echo "OK";
