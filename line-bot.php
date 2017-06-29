@@ -79,16 +79,9 @@ if (!is_null($events['events'])) {
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				//'text' => $start.' '.$text.' '.$end
 				
-				'type' => 'template',
-				'altText' => 'this isbla',
-				'template' => {
-					'type' => 'buttons',
-					'thumbnailImageUrl' => 'tpmotorcycle.com/tpprice/upload/Akrapovic XSR 700 Black.jpg',
-					'title' => '',
-					'actions' => ['type' => 'uri',
-						     'label' => 'view detail',
-						     'uri' => '']
-				}
+				'type' => 'image',
+				'originalContentUrl' => 'http://www.tpmotorcycle.com/tpprice/upload/Akrapovic XSR 700 Black.jpg',
+				'previewImageUrl' => 'http://www.tpmotorcycle.com/tpprice/upload/Akrapovic XSR 700 Black.jpg'
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
