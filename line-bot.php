@@ -14,7 +14,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$gettext = strtolower($event['message']['text']);
-			$text = '';
+			$text = $gettext;
 			$user = $event['source']['userId'];
 			$room = $event['source']['roomId'];
 			$group = $event['source']['groupId'];
@@ -66,42 +66,40 @@ if (!is_null($events['events'])) {
 }else{
 	$type = $_GET['t'];
 	$text = $_GET['s'];
-	//$userid= 'U192d2b148a2d59604541ba971752ca7f';
+	
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$id='C8b31f8f6b276cbc19262017f7ffe81e7';
-	$roomid = 'R3f9fba4239b99276d2bc2153eecb330a';
+	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
+
 	if($type == 'user'){
 		$id = $userid;
-	}elseif($type=='room'){
-		$id = $roomid;
+	}else($type=='room'){
+		$id=$roomid;
 	}
-
+/*
 			$messages = [
 				'type' => 'text',
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				'text' => $start.' '.$text.' '.$end
-			];
-		/*
+			];*/
+		
 			$messages = [
-				  "type" => "template",
-				  "altText" => "this is a confirm template",
-				  "template" => {
-				      "type" => "confirm",
-				      "text" => "Are you sure?",
-				      "actions"=> [
-					  {
-					    "type" => "message",
-					    "label"=> "Yes",
-					    "text"=> "yes"
-					  },
-					  {
-					    "type"=> "message",
-					    "label"=> "No",
-					    "text"=> "no"
-					  }
-				      ]
+				  'type' => 'template',
+				  'altText' => 'this is a confirm template',
+				  'template' => {
+						'type' => 'confirm',
+						'text' => 'Are you sure?',
+						'actions' => [{
+							'type' => 'message',
+							'label' => 'Yes',
+							'text' => 'yes'
+						},{
+							'type' => 'message',
+							'label' => 'No',
+							'text' => 'no'
+						}]
 				  }
-				];*/
+				];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
@@ -123,5 +121,3 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 }
 echo "OK";
-
-
