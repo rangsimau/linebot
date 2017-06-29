@@ -91,20 +91,22 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
 				'to' => $id,
-				'type' => 'template',
-				'altText' => 'this is',
-				'template' => {
-					'type' => 'confirm',
-					'text' => 'Are?',
-					'actions' => [{
-						'type' => 'message',
-						'label' => 'Yes',
-						'text'	=> 'yes'},{
-						'type' => 'message',
-						'label' => 'No',
-						'text' => 'no}]}
-				//'messages' => [$messages],
-			];
+				'messages' =>[
+					'type' => 'template',
+					'altText' => 'this is',
+					'template' => {
+						'type' => 'confirm',
+						'text' => 'Are?',
+						'actions' => [{
+							'type' => 'message',
+							'label' => 'Yes',
+							'text'	=> 'yes'},
+							{
+							'type' => 'message',
+							'label' => 'No',
+							'text' => 'no}]}
+					//'messages' => [$messages],
+			]];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
