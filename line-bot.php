@@ -61,7 +61,9 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}
 	}
-}else{
+}
+echo 'pass';
+/*
 	$type = $_GET['t'];
 	$text = $_GET['s'];
 	
@@ -87,7 +89,6 @@ if (!is_null($events['events'])) {
 					'actions' => []
 				}
 			];*/
-			echo 'pass';
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
@@ -121,5 +122,5 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-}
+}*/
 echo "OK";
