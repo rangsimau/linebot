@@ -79,9 +79,19 @@ if (!is_null($events['events'])) {
 				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				//'text' => $start.' '.$text.' '.$end
 				
-				'type' => 'sticker',
-				'packageId' => '1',
-				'stickerId' => '1'
+				'type' => 'template',
+				'altText' => 'this is',
+				'template' => 
+				{
+					'type' => 'confirm',
+					'text' => 'Ary you?',
+					'actions' => 
+						[
+							'type' => 'message',
+							'label' => 'Yes',
+							'text' => 'userid'
+					]
+				}
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
