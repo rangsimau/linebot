@@ -1,11 +1,10 @@
 <?php
 $access_token = '8vKMiroG4T1TmRvFnAFu9VXRXp0WQJGPmyxAA4Ae5mx+NISTXeuv6B8fSiEj3Tu/IeNTVXuEHAokWIq3AayKY5GBSVCcalP/x3yh169JtnpZ2EfUg99oC2c3VcySEpyCDAuFXKSbXMip966sAUrqCAdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
+// Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$end = '•';
-$start = '•';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -13,31 +12,13 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$gettext = strtolower($event['message']['text']);
-			$text = $gettext;
-			$user = $event['source']['userId'];
-			$room = $event['source']['roomId'];
-			$group = $event['source']['groupId'];
-			$source_type = $event['source']['type'];
-			
+			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			if($gettext == 'userid'){
-				$text = $start.' '.$user.' '.$end;
-			}elseif($gettext == 'roomid'){
-				$text = $start.' '.$room.' '.$end;
-			
-			}elseif($gettext == 'groupid'){
-				$text = $start.' '.$group.' '.$end;
-				
-			}elseif($gettext == 'payment check'){
-				$text = 'processing..';
-			}
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
 				'text' => $text
 			];
 
@@ -60,11 +41,11 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		
 		}
 	}
 }
 echo "OK";
+
 /*else{
 	$type = $_GET['t'];
 	$text = $_GET['s'];
