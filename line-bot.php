@@ -68,7 +68,7 @@ else{
 	$key = $_GET['id'];
 
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
-	$id='C8b31f8f6b276cbc19262017f7ffe81e7';
+	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
 	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
 
 	if(strtolower($table) == 'pricelist' ){
