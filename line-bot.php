@@ -46,7 +46,7 @@ if (!is_null($events['events'])) {
 			}*/
 
 			if($first_word == 'check'){
-				$bike = substr($gettext,5);
+				$bike = substr($gettext,7);
 
 				if(strpos(strtolower('Kawasaki Z900 2017'),$bike)){
 					$text = 'Kawasaki Z900 2017
