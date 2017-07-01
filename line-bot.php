@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 			if($first_word == 'check'){
 				$bike = substr($gettext,6);
 
-				if(strpos('Kawasaki Z900 2017',$bike)){
+				if(strpos(strtolower('Kawasaki Z900 2017'),$bike)){
 					$text = 'Akrapôvic Slip on Carbon & Titanium  30000
 Akrapovic Slip on Shỏrty 27500
 + คอ Full Stâinless 4-2-1 27500
