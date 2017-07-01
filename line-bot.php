@@ -1,7 +1,6 @@
 <?php
 $access_token = '8vKMiroG4T1TmRvFnAFu9VXRXp0WQJGPmyxAA4Ae5mx+NISTXeuv6B8fSiEj3Tu/IeNTVXuEHAokWIq3AayKY5GBSVCcalP/x3yh169JtnpZ2EfUg99oC2c3VcySEpyCDAuFXKSbXMip966sAUrqCAdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
-// Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
@@ -15,35 +14,27 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$gettext = strtolower($event['message']['text']);
-			$arr = explode(' ',trim($gettext));
 
-			$first_word = $arr[0];
 			$text = "";
-			//$user = $event['source']['userId'];
-			//$room = $event['source']['roomId'];
-			//$group = $event['source']['groupId'];
-			//$source_type = $event['source']['type'];
+			$user = $event['source']['userId'];
+			$room = $event['source']['roomId'];
+			$group = $event['source']['groupId'];
+			$source_type = $event['source']['type'];
 
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			/*
-			if($gettext == 'userid'){
+			
+			if($gettext == '@userid'){
 				$text = $start.' '.$user.' '.$end;
-			}elseif($gettext == 'roomid'){
+			}elseif($gettext == '@roomid'){
 				$text = $start.' '.$room.' '.$end;
 			
-			}elseif($gettext == 'groupid'){
+			}elseif($gettext == '@groupid'){
 				$text = $start.' '.$group.' '.$end;
 				
 			}elseif($gettext == 'payment check'){
-				$text = 'processing..';
-			}elseif($gettext == 'yes'){
-				$text = 'I love you';
-			}elseif($gettext == 'no'){
-				$text = 'Please tell me why';
-			}elseif($gettext == 'marry'){
-				$testcont = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php');
-			}*/
+				$text = 'under construction..';
+			}
 
 			// Build message to reply back
 			$messages = [
@@ -70,37 +61,20 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-
 /*else{
-	$type = $_GET['t'];
-	$text = $_GET['s'];
-	
+	$table = $_GET['tbl'];
+	$action = $_GET['act'];
+	$user = $_GET['user'];
+	$key = $_GET['id'];
+
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$id='C8b31f8f6b276cbc19262017f7ffe81e7';
 	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
-	if($type == 'user'){
-		$id = $userid;
-	}elseif($type=='room'){
-		$id = $roomid;
-	}
+
 			$messages = [
-				//'type' => 'text',
-				//'text' => 'userid: '.$user.'\n roomid: '.$room .'\n groupid: '.$group 
-				//'text' => $start.' '.$text.' '.$end
+				'type' => 'text',
+				'text' => ''
 				
-				'type' => 'template',
-				'altText' => 'why',
-				'template' => [
-					'type' => 'confirm',
-					'text' => 'sure?',
-					'actions' => [
-						['type'=>'message',
-						 'label' => 'Yes',
-						 'text' => 'yes'
-						],['type' => 'message',
-						  'label' => 'No',
-						  'text' => 'no']
-					]]
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
