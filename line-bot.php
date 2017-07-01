@@ -61,25 +61,36 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-/*else{
+else{
 	$table = $_GET['tbl'];
 	$action = $_GET['act'];
-	$user = $_GET['user'];
+	//$user = $_GET['user'];
 	$key = $_GET['id'];
 
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$id='C8b31f8f6b276cbc19262017f7ffe81e7';
 	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
 
+	if(strtolower($table) == 'pricelist' ){
+		//get bike name of id
+		$model = file_get_contents('http://www.tpmotorcycle.com/linebot/getname.php?id='.$key);
+		$text = $start.$text.$model.$end;
+		if(strtolower($action) == "u"){
+			$text = $text." แก้ไขเรียบร้อยค่ะ";
+		}else{
+			$text = $text." เพิ่มเรียบร้อยค่ะ";
+		}
+	}
+
 			$messages = [
 				'type' => 'text',
-				'text' => ''
+				'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
-				'to' => $id,
+				'to' => $groupid,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
@@ -93,5 +104,5 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 			echo $result . "\r\n";
-}*/
+}
 echo "OK";
