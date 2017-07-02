@@ -73,7 +73,7 @@ else{
 
 	if(strtolower($table) == 'pricelist' ){
 		//get bike name of id
-		$model = strip_tags(file_get_contents('line-push.php'));
+		$model = file_get_contents('line-push.php');
 		$text = $start.$text.$model.$end;
 		if(strtolower($action) == "u"){
 			$text = $text." แก้ไขเรียบร้อยค่ะ";
