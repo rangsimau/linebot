@@ -73,7 +73,7 @@ else{
 
 	if(strtolower($table) == 'pricelist' ){
 		//get bike name of id
-		$model = file_get_contents('http://www.rangsima.com/getname.php);
+		$model = file_get_contents('http://www.rangsima.com/getname.php');
 		$text = $start.$text.$model.$end;
 		if(strtolower($action) == "u"){
 			$text = $text." แก้ไขเรียบร้อยค่ะ";
