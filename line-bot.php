@@ -34,8 +34,15 @@ if (!is_null($events['events'])) {
 				
 			}elseif($gettext == 'payment check'){
 				$text = 'under construction..';
+			}elseif($gettext == '@accessories'){
+				$text = 'http://www.tpmotorcycle.com/accessories.html';
+			}elseif($gettext == '@pricelist'){
+				$text = 'http://www.tpmotorcycle.com/tppricelist.php';
+			}elseif($gettext == '@editpricelist'){
+				$text = 'http://www.tpmotorcycle.com/editpricelist.php';
+			}elseif($gettext == '@pos'){
+				$text = 'http://www.tpmotorcycle.com/ospos/public';
 			}
-
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
