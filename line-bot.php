@@ -48,6 +48,21 @@ if (!is_null($events['events'])) {
 				$text = 'http://www.tpmotorcycle.com/editpricelist.php';
 			}elseif($gettext == '@pos'){
 				$text = 'http://www.tpmotorcycle.com/ospos/public';
+			}elseif($gettext == '@bikestock'){
+				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock#st=p&n=ae1f5535-a687-4ea6-9ae3-d378ff0db3f1
+R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
+Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
+			}elseif($gettext == '@instructions'){
+				$text = '@userid: return userid
+@groupid: return groupid
+@roomid: return roomid
+@accessories: return accessories url
+@pricelist: return pricelist url
+@editpricelist: return editpricelist url
+@pos: return pos url
+@payment check: under construction..
+@payment [customer]: return overdue item list (under construction)
+@bikestock: return bike stock url';
 			}else{
 				$text = 'No results, please check your spelling';
 			}
