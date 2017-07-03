@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 			}elseif($gettext == '@pos'){
 				$text = 'http://www.tpmotorcycle.com/ospos/public';
 			}elseif($gettext == '@bikestock'){
-				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock#st=p&n=ae1f5535-a687-4ea6-9ae3-d378ff0db3f1
+				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
 R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
 Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 			}elseif($gettext == '@instructions'){
