@@ -31,6 +31,9 @@ if (!is_null($events['events'])) {
 			}elseif($gettext == '@groupid'){
 				$text = $start.' '.$group.' '.$end;
 				
+			}elseif(substr($gettext,0,6) == '@price'){
+				$bike = substr($gettext,7);
+				$text = file_get_contents('http://rangsima.com/bikeprice.php'); 
 			}elseif($gettext == '@payment check'){
 				$text = 'under construction..';
 			}elseif($gettext == '@payment fix'){
