@@ -14,7 +14,6 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$gettext = strtolower($event['message']['text']);
-
 			$text = "";
 			$user = $event['source']['userId'];
 			$room = $event['source']['roomId'];
@@ -23,7 +22,7 @@ if (!is_null($events['events'])) {
 
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			
+		if(substr($gettext,0,1) == '@'){
 			if($gettext == '@userid'){
 				$text = $start.' '.$user.' '.$end;
 			}elseif($gettext == '@roomid'){
@@ -32,7 +31,7 @@ if (!is_null($events['events'])) {
 			}elseif($gettext == '@groupid'){
 				$text = $start.' '.$group.' '.$end;
 				
-			}elseif($gettext == 'payment check'){
+			}elseif($gettext == '@payment check'){
 				$text = 'under construction..';
 			}elseif($gettext == '@payment fix'){
 				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
@@ -52,6 +51,7 @@ if (!is_null($events['events'])) {
 			}else{
 				$text = 'No results, please check your spelling';
 			}
+		}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
