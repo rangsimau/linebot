@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 				
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
-				$text = 'http://rangsima.com/bikeprice.php?bike='.$bike; 
+				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
 			}elseif($gettext == '@payment check'){
 				$text = 'under construction..';
 			}elseif($gettext == '@payment fix'){
