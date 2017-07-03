@@ -35,12 +35,12 @@ if (!is_null($events['events'])) {
 			}elseif($gettext == 'payment check'){
 				$text = 'under construction..';
 			}elseif($gettext == '@payment fix'){
-				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท\n
-				รายการค้างจ่าย:\n
-				- Coxx การ์ดหม้อน้ำ สีไทเทเนียม 5500-12% = 4840 บาท\n
-				- MRA ชิว สีควัน zx10 3500\n
-				- R&G ท้ายแต่ง MT 26500-12% = 23320 บาท\n
-				ยอดค้างจ่าย 136,700 บาท';
+				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
+รายการค้างจ่าย:
+- Coxx การ์ดหม้อน้ำ สีไทเทเนียม 5500-12% = 4840 บาท
+- MRA ชิว สีควัน zx10 3500
+- R&G ท้ายแต่ง MT 26500-12% = 23320 บาท
+ยอดค้างจ่าย 136,700 บาท';
 			}elseif($gettext == '@accessories'){
 				$text = 'http://www.tpmotorcycle.com/accessories.html';
 			}elseif($gettext == '@pricelist'){
@@ -49,6 +49,8 @@ if (!is_null($events['events'])) {
 				$text = 'http://www.tpmotorcycle.com/editpricelist.php';
 			}elseif($gettext == '@pos'){
 				$text = 'http://www.tpmotorcycle.com/ospos/public';
+			}else{
+				$text = 'No results, please check your spelling';
 			}
 			// Build message to reply back
 			$messages = [
