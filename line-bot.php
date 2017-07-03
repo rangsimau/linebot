@@ -34,6 +34,9 @@ if (!is_null($events['events'])) {
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
+			}elseif(substr($gettext,0,6) == '@prices'){
+				$bike = urlencode(substr($gettext,8));
+				$text = file_get_contents('http://rangsima.com/bikeprice.php?bike='.$bike); 
 			}elseif($gettext == '@payment check'){
 				$text = 'under construction..';
 			}elseif($gettext == '@payment fix'){
