@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 				$bike = urlencode(substr($gettext,8));
 				$bikecontent = file_get_contents('http://rangsima.com/bikeprice.php?bike='.$bike);
 				$bikes = json_decode($bikecontent,true);
-				$text = strip_tags($bikes[0]['Content']);
+				$text = strip_tags($bikes['bike'][0]['Content']);
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
