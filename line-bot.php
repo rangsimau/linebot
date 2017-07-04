@@ -32,7 +32,8 @@ if (!is_null($events['events'])) {
 				$text = $start.' '.$group.' '.$end;
 			}elseif(substr($gettext,0,7) == '@prices'){
 				$bike = urlencode(substr($gettext,8));
-				$text = strip_tags(file_get_contents('http://rangsima.com/bikeprice.php?bike='.$bike)); 
+				$bikecontent = file_get_contents('http://rangsima.com/bikeprice.php?bike='.$bike); 
+				$text = strip_tags($bikecontent['Content']);
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
