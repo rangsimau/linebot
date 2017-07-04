@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
 			}elseif(substr($gettext,0,14) == '@payment check'){
-				$customer = substr($gettext,15);
+				$customer = substr($gettext,16);
 				$text = file_get_contents('http://rangsima.com/payment_'.$customer.'.txt');
 			}elseif($gettext == '@payment fix'){
 				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
