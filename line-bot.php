@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
 				$text = '.';
 				$customer = substr($gettext,15);
 				$customer = str_replace(' ','_',$customer);
-				$pay = file_get_contents('http://www.rangsima.com/payment_.'$customer.'txt');
+				$pay = file_get_contents('http://www.rangsima.com/payment_'.$customer.'txt');
 				//$text = $customer;
 				$text = strip_tags(nl2br($pay));
 			}elseif($gettext == '@payment fix'){
