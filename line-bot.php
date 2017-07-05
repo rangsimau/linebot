@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
 				$customer = substr($gettext,15);
 				$customer = str_replace(' ','_',$customer);
 				$pay = file_get_contents('http://www.rangsima.com/payment_'.$customer.'txt');
-				//$text = $customer;
-				$text = strip_tags(nl2br($pay));
+				$text = 'http://www.rangsima.com/payment_'.$customer.'txt';
+				//$text = strip_tags(nl2br($pay));
 			}elseif($gettext == '@payment fix'){
 				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
 รายการค้างจ่าย:
