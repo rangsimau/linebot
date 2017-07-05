@@ -33,8 +33,8 @@ if (!is_null($events['events'])) {
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
-			}elseif($gettext == '@payment check'){
-				$customer = substr($gettext,16);
+			}elseif(substri($gettext,0,14) == '@payment check'){
+				$customer = substr($gettext,15);
 				$pay = file_get_contents('http://www.rangsima.com/payment_.'$customer'.txt');
 				$text = $customer;
 				//$text = strip_tags(nl2br($pay));
