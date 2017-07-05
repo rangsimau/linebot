@@ -33,11 +33,11 @@ if (!is_null($events['events'])) {
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
 				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
-			}elseif(substri($gettext,0,14) == '@payment check'){
+			}elseif(substr($gettext,0,14) == '@payment check'){
 				$text = '.';
-				//$customer = substr($gettext,15);
+				$customer = substr($gettext,15);
 				//$pay = file_get_contents('http://www.rangsima.com/payment_.'$customer'.txt');
-				//$text = $customer;
+				$text = $customer;
 				//$text = strip_tags(nl2br($pay));
 			}elseif($gettext == '@payment fix'){
 				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
