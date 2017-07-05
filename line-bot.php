@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 				$customer = substr($gettext,15);
 				$customer = str_replace(' ','_',$customer);
 				$link = 'http://www.rangsima.com/payment_'.$customer.'.txt';
-				$pay = file_get_contents('http://www.rangsima.com/payment_'.$customer.'.txt');
+				$pay = file_get_contents('http://www.rangsima.com/payments/payment_'.$customer.'.txt');
 				//$text = 'http://www.rangsima.com/payment_'.$customer.'txt';
 				$text = strip_tags(nl2br($pay));
 				$text = $text."\n".$link;
