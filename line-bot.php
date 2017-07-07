@@ -46,23 +46,28 @@ if (!is_null($events['events'])) {
 R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
 Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 			}elseif(substr($gettext,0,8) == '@payment'){
-				$text = '.';
+				$text = 'Customer not found, please try again';
 				$customer = trim(substr($gettext,8));
 				$customer = str_replace(' ','_',$customer);
 				$link = 'http://www.'.$mainurl.'/payments/payment_'.$customer;
 				$pay = file_get_contents('http://www.'.$mainurl.'/payments/payment_'.$customer.'.txt');
-				$text = strip_tags(nl2br($pay));
-				$text = $text."\n".$link;
+				if($pay){
+					$text = strip_tags(nl2br($pay));
+					$text = $text."\n".$link;
+				}
+			}elseif(substr($gettext,0,10)=='@bank acct'){
+				$text = 
 			}elseif($gettext == '@instructions'){
 				$text = $start.'@userid: return userid
-@groupid: return groupid
-@roomid: return roomid
-@accessories: return accessories url
-@pricelist: return pricelist url
-@editpricelist: return editpricelist url
+@groupid: return groupid.
+@roomid: return roomid.
+@accessories: return accessories url.
+@pricelist [search]: return pricelist url with search.
+@editpricelist: return editpricelist url.
 @pos: return pos url
+@bikestock: return bike stock url
 @payment [customer]: return overdue item list
-@bikestock: return bike stock url'.$end;
+@bank acct: return TP bank account number'.$end;
 			}else{
 				$text = 'No results, please check your spelling';
 			}
