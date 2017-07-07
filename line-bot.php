@@ -56,7 +56,9 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 					$text = $text."\n".$link;
 				}
 			}elseif(substr($gettext,0,10)=='@bank acct'){
-				$text = 
+				$filename = trim(substr($gettext,1));
+				$filename = str_replace(' ','_',$gettext);
+				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/payment_'.$filename.'.txt')));
 			}elseif($gettext == '@instructions'){
 				$text = $start.'@userid: return userid
 @groupid: return groupid.
@@ -64,10 +66,10 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 @accessories: return accessories url.
 @pricelist [search]: return pricelist url with search.
 @editpricelist: return editpricelist url.
-@pos: return pos url
-@bikestock: return bike stock url
-@payment [customer]: return overdue item list
-@bank acct: return TP bank account number'.$end;
+@pos: return pos url.
+@bikestock: return bike stock url.
+@payment [customer]: return overdue item list.
+@bank acct: return TP bank account number.'.$end;
 			}else{
 				$text = 'No results, please check your spelling';
 			}
