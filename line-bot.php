@@ -56,9 +56,7 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 					$text = $text."\n".$link;
 				}
 			}elseif(substr($gettext,0,10)=='@bank acct'){
-				$filename = trim(substr($gettext,1));
-				$filename = str_replace(' ','_',$gettext);
-				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/'.$filename.'.txt')));
+				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/bank_acct.txt')));
 			}elseif($gettext == '@instructions'){
 				$text = $start.'@userid: return userid
 @groupid: return groupid.
