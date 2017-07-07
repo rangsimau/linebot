@@ -47,10 +47,10 @@ R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
 Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 			}elseif(substr($gettext,0,8) == '@payment'){
 				$text = 'Customer not found, please try again';
-				$customer = trim(substr($gettext,8));
+				$customer = trim(substr($gettext,1));
 				$customer = str_replace(' ','_',$customer);
 				$link = 'http://www.'.$mainurl.'/payments/payment_'.$customer;
-				$pay = file_get_contents('http://www.'.$mainurl.'/payments/payment_'.$customer.'.txt');
+				$pay = file_get_contents('http://www.'.$mainurl.'/payments/'.$customer.'.txt');
 				if($pay){
 					$text = strip_tags(nl2br($pay));
 					$text = $text."\n".$link;
@@ -58,7 +58,7 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 			}elseif(substr($gettext,0,10)=='@bank acct'){
 				$filename = trim(substr($gettext,1));
 				$filename = str_replace(' ','_',$gettext);
-				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/payment_'.$filename.'.txt')));
+				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/'.$filename.'.txt')));
 			}elseif($gettext == '@instructions'){
 				$text = $start.'@userid: return userid
 @groupid: return groupid.
