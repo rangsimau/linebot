@@ -7,6 +7,7 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 $end = '•';
 $start = '•';
+$mainurl = 'rangsima.com';
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -27,28 +28,11 @@ if (!is_null($events['events'])) {
 				$text = $start.' '.$user.' '.$end;
 			}elseif($gettext == '@roomid'){
 				$text = $start.' '.$room.' '.$end;
-			
 			}elseif($gettext == '@groupid'){
 				$text = $start.' '.$group.' '.$end;
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
-				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike; 
-			}elseif(substr($gettext,0,14) == '@payment check'){
-				$text = '.';
-				$customer = substr($gettext,15);
-				$customer = str_replace(' ','_',$customer);
-				$link = 'http://www.rangsima.com/payments/payment_'.$customer;
-				$pay = file_get_contents('http://www.rangsima.com/payments/payment_'.$customer.'.txt');
-				//$text = 'http://www.rangsima.com/payment_'.$customer.'txt';
-				$text = strip_tags(nl2br($pay));
-				$text = $text."\n".$link;
-			}elseif($gettext == '@payment fix'){
-				$text = 'โอนล่าสุดวันที่ xx.xx.xx จำนวน xx,xxx บาท
-รายการค้างจ่าย:
-- Coxx การ์ดหม้อน้ำ สีไทเทเนียม 5500-12% = 4840 บาท
-- MRA ชิว สีควัน zx10 3500
-- R&G ท้ายแต่ง MT 26500-12% = 23320 บาท
-ยอดค้างจ่าย 136,700 บาท';
+				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike;
 			}elseif($gettext == '@accessories'){
 				$text = 'http://www.tpmotorcycle.com/accessories.html';
 			}elseif($gettext == '@pricelist'){
@@ -61,17 +45,24 @@ if (!is_null($events['events'])) {
 				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
 R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
 Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
+			}elseif(substr($gettext,0,8) == '@payment'){
+				$text = '.';
+				$customer = trim(substr($gettext,8));
+				$customer = str_replace(' ','_',$customer);
+				$link = 'http://www.'.$mainurl.'/payments/payment_'.$customer;
+				$pay = file_get_contents('http://www.'.$mainurl.'/payments/payment_'.$customer.'.txt');
+				$text = strip_tags(nl2br($pay));
+				$text = $text."\n".$link;
 			}elseif($gettext == '@instructions'){
-				$text = '@userid: return userid
+				$text = $start.'@userid: return userid
 @groupid: return groupid
 @roomid: return roomid
 @accessories: return accessories url
 @pricelist: return pricelist url
 @editpricelist: return editpricelist url
 @pos: return pos url
-@payment check: under construction..
-@payment [customer]: return overdue item list (under construction)
-@bikestock: return bike stock url';
+@payment [customer]: return overdue item list
+@bikestock: return bike stock url'.$end;
 			}else{
 				$text = 'No results, please check your spelling';
 			}
