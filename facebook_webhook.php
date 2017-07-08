@@ -1,3 +1,4 @@
 <?php
-  echo 'tppowersport-verify-token-0890320312';
+  echo $_GET['hub_challenge'];
+  
 ?>
