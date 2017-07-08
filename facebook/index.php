@@ -14,4 +14,5 @@ if($sender_id == '236113873116564' && $verb == 'add'){
     $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.$item_type.' from tp');
 }else{
     $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg=else');
+}
 ?>
