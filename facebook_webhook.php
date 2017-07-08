@@ -1,3 +1,3 @@
 <?php
-  echo 'hello';
+  echo 'tppowersport-verify-token-0890320312';
 ?>
