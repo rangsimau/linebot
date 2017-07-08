@@ -103,6 +103,7 @@ else{
 	$action = $_GET['act'];
 	//$user = $_GET['user'];
 	$key = $_GET['id'];
+	$msg = $_GET['msg'];
 
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
@@ -120,13 +121,13 @@ else{
 	}
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => $msg
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/push';
 			$data = [
-				'to' => $groupid,
+				'to' => $userid,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
