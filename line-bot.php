@@ -7,7 +7,8 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 $end = '•';
 $start = '•';
-$mainurl = 'rangsima.com';
+$osposurl = 'rangsima.com';
+$mainurl = 'rangsima.com/tpmotocycle.com';
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
@@ -32,15 +33,15 @@ if (!is_null($events['events'])) {
 				$text = $start.' '.$group.' '.$end;
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
-				$text = 'http://rangsima.com/tpmotorcycle.com/tppricelist.php?search='.$bike;
+				$text = 'http://'.$mainurl.'/tppricelist.php?search='.$bike;
 			}elseif($gettext == '@accessories'){
-				$text = 'http://rangsima.com/tpmotorcycle.com/accessories.html';
+				$text = 'http://'.$mainurl.'/accessories.html';
 			}elseif($gettext == '@pricelist'){
-				$text = 'http://rangsima.com/tpmotorcycle.com/tppricelist.php';
+				$text = 'http://'.$mainurl.'/tppricelist.php';
 			}elseif($gettext == '@editpricelist'){
-				$text = 'http://rangsima.com/tpmotorcycle.com/editpricelist.php';
+				$text = 'http://'.$mainurl.'/editpricelist.php';
 			}elseif($gettext == '@pos'){
-				$text = 'http://rangsima.com/ospos/public';
+				$text = 'http://'.$osposurl.'/ospos/public';
 			}elseif($gettext == '@bikestock'){
 				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
 R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
@@ -49,14 +50,14 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 				$text = 'Customer not found, please try again';
 				$customer = trim(substr($gettext,1));
 				$customer = str_replace(' ','_',$customer);
-				$link = 'http://www.'.$mainurl.'/payments/payment_'.$customer;
-				$pay = file_get_contents('http://www.'.$mainurl.'/payments/'.$customer.'.txt');
+				$link = 'http://'.$osposurl.'/payments/payment_'.$customer;
+				$pay = file_get_contents('http://'.$osposurl.'/payments/'.$customer.'.txt');
 				if($pay){
 					$text = strip_tags(nl2br($pay));
 					$text = $text."\n".$link;
 				}
 			}elseif(substr($gettext,0,10)=='@bank acct'){
-				$text = strip_tags(nl2br(file_get_contents('http://www.'.$mainurl.'/payments/bank_acct.txt')));
+				$text = strip_tags(nl2br(file_get_contents('http://'.$osposurl.'/payments/bank_acct.txt')));
 			}elseif($gettext == '@instructions'){
 				$text = $start.'@userid: return userid
 @groupid: return groupid.
