@@ -8,7 +8,7 @@ $events = json_decode($content, true);
 $end = '•';
 $start = '•';
 $osposurl = 'rangsima.com';
-$mainurl = 'rangsima.com/tpmotocycle.com';
+$mainurl = 'rangsima.com/tpmotorcycle.com';
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
