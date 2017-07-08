@@ -32,15 +32,15 @@ if (!is_null($events['events'])) {
 				$text = $start.' '.$group.' '.$end;
 			}elseif(substr($gettext,0,6) == '@price'){
 				$bike = urlencode(substr($gettext,7));
-				$text = 'http://tpmotorcycle.com/tppricelist.php?search='.$bike;
+				$text = 'http://rangsima.com/tpmotorcycle.com/tppricelist.php?search='.$bike;
 			}elseif($gettext == '@accessories'){
-				$text = 'http://www.tpmotorcycle.com/accessories.html';
+				$text = 'http://rangsima.com/tpmotorcycle.com/accessories.html';
 			}elseif($gettext == '@pricelist'){
-				$text = 'http://www.tpmotorcycle.com/tppricelist.php';
+				$text = 'http://rangsima.com/tpmotorcycle.com/tppricelist.php';
 			}elseif($gettext == '@editpricelist'){
-				$text = 'http://www.tpmotorcycle.com/editpricelist.php';
+				$text = 'http://rangsima.com/tpmotorcycle.com/editpricelist.php';
 			}elseif($gettext == '@pos'){
-				$text = 'http://www.tpmotorcycle.com/ospos/public';
+				$text = 'http://rangsima.com/ospos/public';
 			}elseif($gettext == '@bikestock'){
 				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
 R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
