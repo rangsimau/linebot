@@ -12,7 +12,7 @@ if($sender_id == '236113873116564' && $verb == 'add'){
         $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '. $verb.' '.$item));
     }
 }else{
-   $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '.$verb));
+   //$get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '.$verb));
 }
 
 ?>
