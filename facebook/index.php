@@ -11,7 +11,7 @@ $message = $events['entry'][0]['changes'][0]['value']['message'];
 $post_id = $events['entry'][0]['changes'][0]['value']['post_id'];
 if($sender_id == '236113873116564' && $verb == 'add'){
     if($item == 'status' || $item == 'video' || $item == 'photo'){
-        $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '. $verb.' '.$item));
+        $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '. $verb.' '.$item."\n".$post_id));
         $update = file_get_contents('http://tpmotorcycle.com/picture/update_facebook.php?postid='.urlencode($post_id));
     }
 }else{
