@@ -17,7 +17,13 @@ if($sender_id == '236113873116564' && $verb == 'add'){
     }
 }else{
     if($field == 'conversations'){
-        $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($content));
+        $access_token = 'EAACquzrGeZCYBABhoDtgtgMMEdWUc7rbdeHT3w4jQlD8ObPPA8HL09rHsakUPnAGElRTCGhvL5jHmK68VLoRZBLwlR5mFK9XRrEg7B9orsy4S3xkXeKXREOI0ZCi6yQL29uYD6qOyaJkdX9BZC3iv4HtuqeoMZBKf440EtlV3bRTqqXuUuXHxtEsAHsVYfEZAQybYARu5aEwZDZD';
+        $thread_id = $events['entry'][0]['changes'][0]['value']['thread_id'];
+        $face_msg = @file_get_contents('https://graph.facebook.com/'.$thread_id.'?fields=messages{message,from}&access_token='.$access_token);
+        $face = json_decode($face_msg, true);
+        $msg = $face['messages']['data'][0]['message'];
+        $from = $face['messages']['data'][0]['from']['name'];
+        $get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($from.' said: '.$msg));
     }
    //$get = file_get_contents('https://still-thicket-82675.herokuapp.com/line-bot.php?msg='.urlencode($sender_name.' '.$verb));
 }
