@@ -122,7 +122,9 @@ else{
 			}elseif(strtolower($action) == "a"){
 				$text = "เพิ่ม [".$h."] เรียบร้อยค่ะ 😉";
 			}
-	}			
+	}else{
+		$text = $msg;
+	}
 			$messages = [
 				'type' => 'text',
 				'text' => $text
