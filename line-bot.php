@@ -119,7 +119,10 @@ else{
 			}else{
 				$text = "เพิ่ม [".$model."] เรียบร้อยค่ะ 😉";
 			}
-			
+		}else{
+			$text = "wrong";
+		}
+	}			
 			$messages = [
 				'type' => 'text',
 				'text' => $text
@@ -142,7 +145,6 @@ else{
 			$result = curl_exec($ch);
 			curl_close($ch);
 			echo $result . "\r\n";
-		}
-	}
+
 }
 echo "OK";
