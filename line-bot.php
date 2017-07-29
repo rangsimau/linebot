@@ -109,7 +109,7 @@ else{
 	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
 	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
 	$emo = array('👌🏼','😉');
-	$indexOfEmo = rand(0, strlen($emo)-1);
+	$indexOfEmo = rand(0, count($emo)-1);
 	$selectedemo = $emo[$indexOfEmo];
 	if(strtolower($table) == 'price' ){
 		//get bike name of id
