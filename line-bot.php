@@ -116,7 +116,7 @@ else{
 		//$model = strip_tags(file_get_contents('http://tpmotorcycle.com/query/get-bike-name.php?key='.$key));
 			if(strtolower($action) == "u"){
 				$text = "อัพเดท [".$h."] เรียบร้อยค่ะ 😉";
-			}else{
+			}elseif(strtolower($action) == "a"){
 				$text = "เพิ่ม [".$h."] เรียบร้อยค่ะ 😉";
 			}
 	}			
