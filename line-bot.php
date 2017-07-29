@@ -104,10 +104,11 @@ else{
 	$key = urldecode($_GET['id']);
 	$msg = urldecode($_GET['msg']);
 	$h = urldecode($_GET['h']);
+	$userid = urldecode($_GET['uid']);
 
-	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
-	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
-	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
+	//$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
+	//$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
+	//$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
 	//$emo = array('👌🏼','😉');
 	//$indexOfEmo = rand(0, count($emo)-1);
 	//$selectedemo = $emo[$indexOfEmo];
