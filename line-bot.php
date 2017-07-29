@@ -108,14 +108,16 @@ else{
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
 	$roomid= 'R3f9fba4239b99276d2bc2153eecb330a';
-
+	$emo = array('👌🏼','😉');
+	$indexOfEmo = rand(0, strlen($emo)-1);
+	$selectedemo = $emo[$indexOfEmo];
 	if(strtolower($table) == 'price' ){
 		//get bike name of id
 		//$model = strip_tags(file_get_contents('http://tpmotorcycle.com/query/get-bike-name.php?key='.$key));
 			if(strtolower($action) == "u"){
-				$text = "อัพเดท [".$h."] เรียบร้อยค่ะ 👌🏼";
+				$text = "อัพเดท [".$h."] เรียบร้อยค่ะ ".$selectedemo;
 			}else{
-				$text = "เพิ่ม [".$h."] เรียบร้อยค่ะ 😉";
+				$text = "เพิ่ม [".$h."] เรียบร้อยค่ะ ".$selectedemo;
 			}
 	}			
 			$messages = [
