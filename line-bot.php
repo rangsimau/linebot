@@ -25,59 +25,12 @@ if (!is_null($events['events'])) {
 
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-		if(substr($gettext,0,1) == '@'){
-			if($gettext == '@userid'){
-				$text = $start.' '.$user.' '.$end;
-			}elseif($gettext == '@roomid'){
-				$text = $start.' '.$room.' '.$end;
-			}elseif($gettext == '@groupid'){
-				$text = $start.' '.$group.' '.$end;
-			}elseif(substr($gettext,0,6) == '@price'){
-				$bike = urlencode(substr($gettext,7));
-				$text = 'http://'.$mainurl.'/tppricelist.php?search='.$bike;
-			}elseif($gettext == '@accessories'){
-				$text = 'http://'.$mainurl.'/accessories.html';
-			}elseif($gettext == '@pricelist'){
-				$text = 'http://'.$mainurl.'/tppricelist.php';
-			}elseif($gettext == '@editpricelist'){
-				$text = 'http://'.$mainurl.'/editpricelist.php';
-			}elseif($gettext == '@pos'){
-				$text = 'http://'.$osposurl.'/ospos/public';
-			}elseif($gettext == '@bikestock'){
-				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
-R&G,CRG: https://www.evernote.com/pub/tppowersport/tppowersport
-Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
-			}elseif(substr($gettext,0,8) == '@payment'){
-				$text = 'Customer not found, please try again';
-				$customer = trim(substr($gettext,1));
-				$customer = str_replace(' ','_',$customer);
-				$link = 'http://'.$osposurl.'/payments/payment_'.$customer;
-				$pay = file_get_contents('http://'.$osposurl.'/payments/'.$customer.'.txt');
-				if($pay){
-					$text = strip_tags(nl2br($pay));
-					$text = $text."\n".$link;
-				}
-			}elseif(substr($gettext,0,10)=='@bank acct'){
-				$text = strip_tags(nl2br(file_get_contents('http://'.$osposurl.'/payments/bank_acct.txt')));
-			}elseif($gettext == '@instructions'){
-				$text = $start.'@userid: return userid
-@groupid: return groupid.
-@roomid: return roomid.
-@accessories: return accessories url.
-@pricelist [search]: return pricelist url with search.
-@editpricelist: return editpricelist url.
-@pos: return pos url.
-@bikestock: return bike stock url.
-@payment [customer]: return overdue item list.
-@bank acct: return TP bank account number.'.$end;
-			}else{
-				$text = 'No results, please check your spelling';
-			}
+
 		}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => 'test'
 			];
 			// Make a 
 			
