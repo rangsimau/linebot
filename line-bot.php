@@ -1,4 +1,5 @@
 <?php
+echo 'start';
 $access_token = '8vKMiroG4T1TmRvFnAFu9VXRXp0WQJGPmyxAA4Ae5mx+NISTXeuv6B8fSiEj3Tu/IeNTVXuEHAokWIq3AayKY5GBSVCcalP/x3yh169JtnpZ2EfUg99oC2c3VcySEpyCDAuFXKSbXMip966sAUrqCAdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -7,7 +8,7 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 $end = '•';
 $start = '•';
-$osposurl = 'tpmotorcycle.com';
+$osposurl = 'rangsima.com';
 $mainurl = 'tpmotorcycle.com';
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -40,7 +41,7 @@ if (!is_null($events['events'])) {
 				$text = 'http://'.$mainurl.'/tppricelist.php';
 			}elseif($gettext == '@editpricelist'){
 				$text = 'http://'.$mainurl.'/editpricelist.php';
-			}elseif($gettext == '@pos'){
+			}elseif($gettext == '@admin'){
 				$text = 'http://'.$osposurl.'/ospos/public';
 			}elseif($gettext == '@bikestock'){
 				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
@@ -65,7 +66,7 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 @accessories: return accessories url.
 @pricelist [search]: return pricelist url with search.
 @editpricelist: return editpricelist url.
-@pos: return pos url.
+@admin: return admin url.
 @bikestock: return bike stock url.
 @payment [customer]: return overdue item list.
 @bank acct: return TP bank account number.'.$end;
