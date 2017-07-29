@@ -99,11 +99,11 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 	}
 }
 else{
-	$table = $_GET['tbl'];
-	$action = $_GET['act'];
-	//$user = $_GET['user'];
-	$key = $_GET['id'];
+	$table = urldecode($_GET['tbl']);
+	$action = urldecode($_GET['act']);
+	$key = urldecode($_GET['id']);
 	$msg = urldecode($_GET['msg']);
+	$h = urldecode($_GET['h']);
 
 	$userid='Ud392f1479ba3a4e92d82c98ba78e9f46';
 	$groupid='C8b31f8f6b276cbc19262017f7ffe81e7';
@@ -111,17 +111,17 @@ else{
 
 	if(strtolower($table) == 'pricelist' ){
 		//get bike name of id
-		$model = strip_tags(file_get_contents('https://still-thicket-82675.herokuapp.com/line-push.php'));
-		$text = $start.$text.$model.$end;
+		$model = 'testing';//strip_tags(file_get_contents(''));
+		
 		if(strtolower($action) == "u"){
-			$text = $text." แก้ไขเรียบร้อยค่ะ";
+			$text = $model." แก้ไขเรียบร้อยค่ะ";
 		}else{
-			$text = $text." เพิ่มเรียบร้อยค่ะ";
+			$text = $model." เพิ่มเรียบร้อยค่ะ";
 		}
 	}
 			$messages = [
 				'type' => 'text',
-				'text' => $msg
+				'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
