@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 				$text = 'http://'.$mainurl.'/tppricelist.php';
 			}elseif($gettext == '@editpricelist'){
 				$text = 'http://'.$mainurl.'/editpricelist.php';
-			}elseif($gettext == '@admin'){
+			}elseif($gettext == '@pos'){
 				$text = 'http://'.$osposurl.'/ospos/public';
 			}elseif($gettext == '@bikestock'){
 				$text = 'Bike Stock: https://www.evernote.com/pub/pokk/bikestock
@@ -65,7 +65,7 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 @accessories: return accessories url.
 @pricelist [search]: return pricelist url with search.
 @editpricelist: return editpricelist url.
-@admin: return admin url.
+@pos: return pos url.
 @bikestock: return bike stock url.
 @payment [customer]: return overdue item list.
 @bank acct: return TP bank account number.'.$end;
