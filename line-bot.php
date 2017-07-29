@@ -113,15 +113,15 @@ else{
 		//get bike name of id
 		$model = strip_tags(file_get_contents('http://tpmotorcycle.com/query/get-bike-name.php?key='.$key));
 		
-		//if($model != 'no input' && $model != 'not found'){
+		if($model != 'no input' && $model != 'not found'){
 			if(strtolower($action) == "u"){
 				$text = "อัพเดท [".$model."] เรียบร้อยค่ะ 👌🏼";
 			}else{
 				$text = "เพิ่ม [".$model."] เรียบร้อยค่ะ 😉";
 			}
-		//}else{
-		//	$text = "มีบางอย่างผิดพลาดในการอัพเดท กรุณาตรวจสอบ";
-		//}
+		}else{
+			$text = "มีบางอย่างผิดพลาดในการอัพเดท กรุณาตรวจสอบ";
+		}
 	}
 			$messages = [
 				'type' => 'text',
