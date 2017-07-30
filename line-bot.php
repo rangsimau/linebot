@@ -50,7 +50,7 @@ Rizoma: https://www.evernote.com/pub/tpmotorcycle/tpmotorcyclesnotebook';
 				$text = 'Customer not found, please try again';
 				$customer = trim(substr($gettext,1));
 				$customer = str_replace(' ','_',$customer);
-				$link = 'http://'.$osposurl.'/payments/payment_'.$customer;
+				$link = 'http://'.$osposurl.'/payments/'.$customer.'.txt';
 				$pay = file_get_contents('http://'.$osposurl.'/payments/'.$customer.'.txt');
 				if($pay){
 					$text = strip_tags(nl2br($pay));
