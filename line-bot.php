@@ -130,8 +130,8 @@ else{
 	}
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic_Link_pipe_Titanium_L-Y10SO11T_thumb.jpg',
-				'previewImageUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png'
+				'originalContentUrl' => 'https://pbs.twimg.com/media/DHSaaDTUwAAnvN9.jpg',
+				'previewImageUrl' => 'https://pbs.twimg.com/media/DHSaaDTUwAAnvN9.jpg'
 				
 				//'type' => 'text',
 				//'text' => $text
