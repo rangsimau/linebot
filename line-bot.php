@@ -130,8 +130,8 @@ else{
 	}
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://pbs.twimg.com/media/DHSaaDTUwAAnvN9.jpg',
-				'previewImageUrl' => 'https://pbs.twimg.com/media/DHSaaDTUwAAnvN9.jpg'
+				'originalContentUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDSPR2-B-HD-sporter.png',
+				'previewImageUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDSPR2-B-HD-sporter.png'
 				
 				//'type' => 'text',
 				//'text' => $text
