@@ -129,10 +129,11 @@ else{
 		$text = $msg;
 	}
 			$messages = [
-				'type' => 'image',
-				'originalContentUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg',
-				'previewImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg'
-				//'text' => $text
+				//'type' => 'image',
+				//'originalContentUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg',
+				//'previewImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg'
+				'type' => 'text',
+				'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
