@@ -129,12 +129,12 @@ else{
 		$text = $msg;
 	}
 			$messages = [
-				'type' => 'image',
-				'originalContentUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg',
-				'previewImageUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg'
+				//'type' => 'image',
+				//'originalContentUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg',
+				//'previewImageUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg'
 				
-				//'type' => 'text',
-				//'text' => $text
+				'type' => 'text',
+				'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
