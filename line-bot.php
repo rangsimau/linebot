@@ -130,8 +130,9 @@ else{
 	}
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png',
-				'previewImageUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic_Link_pipe_Titanium_L-Y10SO11T_thumb.jpg'
+				'originalContentUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic_Link_pipe_Titanium_L-Y10SO11T_thumb.jpg',
+				'previewImageUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png'
+				
 				//'type' => 'text',
 				//'text' => $text
 				
