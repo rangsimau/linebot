@@ -129,8 +129,10 @@ else{
 		$text = $msg;
 	}
 			$messages = [
-				'type' => 'text',
-				'text' => $text
+				'type' => 'image',
+				'originalContentUrl' => 'http://tpmotorcycle.com/images/Bike-Logo/Honda%20logo.png',
+				'previewImageUrl' => 'http://tpmotorcycle.com/images/Bike-Logo/Honda%20logo.png'
+				//'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
