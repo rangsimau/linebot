@@ -129,11 +129,11 @@ else{
 		$text = $msg;
 	}
 			$messages = [
-				//'type' => 'image',
-				//'originalContentUrl' => 'http://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png',
+				'type' => 'image',
+				'originalContentUrl' => 'http://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png'
 				//'previewImageUrl' => 'http://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDRODR1-BAVTBL-vrod-black.png'
-				'type' => 'text',
-				'text' => $text
+				//'type' => 'text',
+				//'text' => $text
 				
 			];
 			// Make a POST Request to Messaging API to reply to sender
