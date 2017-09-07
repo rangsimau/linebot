@@ -130,8 +130,8 @@ else{
 	}
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'http://tpmotorcycle.com/images/Bike-Logo/Honda%20logo.png',
-				'previewImageUrl' => 'http://tpmotorcycle.com/images/Bike-Logo/Honda%20logo.png'
+				'originalContentUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg',
+				'previewImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Internet2.jpg/220px-Internet2.jpg'
 				//'text' => $text
 				
 			];
