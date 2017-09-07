@@ -130,8 +130,8 @@ else{
 	}
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDSPR2-B-HD-sporter.png',
-				'previewImageUrl' => 'https://tpmotorcycle.com/ospos/public/uploads/item_pics/Akrapovic-S-HDSPR2-B-HD-sporter.png'
+				'originalContentUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg',
+				'previewImageUrl' => 'https://tpmotorcycle.com/images/BMW_C600_Old_bikepic_400x267.jpg'
 				
 				//'type' => 'text',
 				//'text' => $text
