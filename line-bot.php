@@ -37,7 +37,7 @@ if (!is_null($events['events'])) {
 			elseif($gettext == '$groupid')
 			{
 				$text = $start.' '.$group.' '.$end;
-			}/*
+			}
 			elseif(substr($gettext,0,6) == '$price')
 			{
 				$bike = urlencode(substr($gettext,7));
@@ -84,7 +84,7 @@ $admin: return admin url.
 $bikestock: return bike stock url.
 $payment [customer]: return overdue item list.
 $bank acct: return TP bank account number.'.$end;
-			}
+			}/*
 			elseif(strtolower(substr($gettext,0,3)) == strtolower('$TP'))
 			{
 				$sale_id = (int)str_replace(' ','',substr($gettext,3));
@@ -239,17 +239,17 @@ $bank acct: return TP bank account number.'.$end;
 			}
 		}
 			// Build message to reply back
-			//if(!$special)
-			//{
+			if(!$special)
+			{
 				$messages = [
 					['type' => 'text',
 					'text' => $text]
 				];
-			//}
-			//else
-			//{
-			//	$messages = $msg;
-			//}
+			}
+			else
+			{
+				$messages = $msg;
+			}
 			
 
 			// Make a 
