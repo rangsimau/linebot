@@ -84,10 +84,10 @@ $admin: return admin url.
 $bikestock: return bike stock url.
 $payment [customer]: return overdue item list.
 $bank acct: return TP bank account number.'.$end;
-			}
+			}/*
 			elseif(strtolower(substr($gettext,0,3)) == strtolower('$TP'))
 			{
-				$sale_id = (int)str_replace(' ','',substr($gettext,3));/*
+				$sale_id = (int)str_replace(' ','',substr($gettext,3));
 				include('../connect.php');
 				$sql = "SELECT sales_items.line as line, first_name, paid_amount, sale_item_type,brand,name,nameth,sales_items.color as color, sales_items.mmy as mmy, quantity_purchased, quantity_shipped
 				from ospos_sales_items as sales_items 
@@ -128,7 +128,7 @@ $bank acct: return TP bank account number.'.$end;
 						
 						$first_name = $item['first_name'];
 						$str[] = $name;
-					}*/
+					}
 					$text = 'TP '.$sale_id." - ".$first_name."\n\n".join("\n\n",$str);
 				}
 				else{
@@ -140,7 +140,7 @@ $bank acct: return TP bank account number.'.$end;
 			}
 			elseif(strtolower(substr($gettext,0,3)) == strtolower('$SH'))
 			{
-				$ship_id = str_replace(' ','',substr($gettext,3));/*
+				$ship_id = str_replace(' ','',substr($gettext,3));
 
 				include('../connect.php');
 				$sql = "SELECT people.first_name as first_name, sales_items.sale_id as sale_id, brand, name, nameth, sales_items.color as color, sales_items.mmy as mmy, quantity_purchased, shippings_items.quantity_shipped as quantity_shipped, ship_img
@@ -162,7 +162,7 @@ $bank acct: return TP bank account number.'.$end;
 						$str[] = $name;
 						$ship_imgs = $row['ship_img'];
 						$first_name = $row['first_name'];
-					}*/
+					}
 					$text = 'SH '.$ship_id.' - '.$first_name."\n\n".join("\n\n",$str);
 
 					if(!empty($ship_imgs))
@@ -189,7 +189,7 @@ $bank acct: return TP bank account number.'.$end;
 			}
 			elseif(strtolower(substr($gettext,0,7)) == strtolower('$dealer'))
 			{
-				$customer_id =  (int)str_replace(' ','',substr($gettext,7));/*
+				$customer_id =  (int)str_replace(' ','',substr($gettext,7));
 				include('../connect.php');
 				$sql = "SELECT sales_items.sale_id as sale_id,sales_items.line as line, first_name, paid_amount, sale_item_type,brand,name,nameth,sales_items.color as color, sales_items.mmy as mmy, quantity_purchased, quantity_shipped
 				from ospos_sales_items as sales_items 
@@ -224,7 +224,7 @@ $bank acct: return TP bank account number.'.$end;
 							$name = $name." 🚚 (SH ".$row_ship['ship_id'].")";
 						}
 					$str[] = $name;
-				}*/
+				}
 
 				$text = join("\n\n",$str);
 				
@@ -232,7 +232,7 @@ $bank acct: return TP bank account number.'.$end;
 				$connect->close();
 
 				
-			}
+			}*/
 			else
 			{
 				$text = 'No results, please check your spelling';
